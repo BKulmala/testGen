@@ -1,0 +1,7 @@
+CPU$
+GPU$
+RAM$
+PSU$
+Motherboard$
+SSD$
+case$

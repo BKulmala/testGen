@@ -1,0 +1,7 @@
+Does complex arithmetic fast fed in by RAM$
+Does simple arithmetic fast fed in by VRAM$
+Holds millions of values and addresses$
+supplies power to the PC$
+Main plate for all the components to speak$
+Holds a huge amount of values and addresses pointed to values$
+contains all the computer parts in one space$

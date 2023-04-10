@@ -63,6 +63,7 @@ if choice == '1':
     array=list(range(0,len(termList) + 0))
     random.shuffle(array)
     DBCursor.execute("UPDATE score SET correct = correct + 1 WHERE Term = 'Total'")
+    definitionDB.commit()
     # Question section
     for x in array:
         questionChoice = termList[x]
@@ -102,7 +103,7 @@ if choice == '2':
     testIntList = [int(i[0]) for i in DBList]
     totalTestsTaken = testIntList[0]
     testIntList.pop(0)
-    
+
     # Display
     plt.bar(testStringList, testIntList)
     plt.show()

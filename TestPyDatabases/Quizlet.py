@@ -94,12 +94,16 @@ if choice == '2':
     DBCursor.execute("SELECT Term FROM score")
     DBList = DBCursor.fetchall()
     testStringList = [''.join(i) for i in DBList]
+    testStringList.pop(0)
 
     # Build x-plot
     DBCursor.execute("SELECT correct FROM score")
     DBList = DBCursor.fetchall()
     testIntList = [int(i[0]) for i in DBList]
-
+    totalTestsTaken = testIntList[0]
+    testIntList.pop(0)
+    
     # Display
     plt.bar(testStringList, testIntList)
     plt.show()
+    

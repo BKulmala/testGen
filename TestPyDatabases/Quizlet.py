@@ -79,6 +79,21 @@ if choice == '1':
             print("Incorrect input.")
 
 if choice == '2':
-    x = np.linspace(0, 20, 100)  # Create a list of evenly-spaced numbers over the range
-    plt.plot(x, np.sin(x))       # Plot the sine of each x point
-    plt.show()                   # Display the plot
+    # Display list of guides available
+    path = "./Databases"
+    dir_list = os.listdir(path)
+    cleanDir = [subtract[:-3] for subtract in dir_list]
+    print(cleanDir)
+    chapterStudy = input()
+    DBName = chapterStudy + ".db"
+    definitionDB = sqlite3.connect("Databases/" + DBName)
+    DBCursor = definitionDB.cursor()
+    DBCursor.execute("SELECT Term FROM score")
+    DBList = DBCursor.fetchall()
+    testStringList = [''.join(i) for i in DBList]
+
+    DBCursor.execute("SELECT correct FROM score")
+    DBList = DBCursor.fetchall()
+    testIntList = [int(i[0]) for i in DBList]
+    plt.bar(testStringList, testIntList)
+    plt.show()
